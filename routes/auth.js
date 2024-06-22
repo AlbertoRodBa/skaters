@@ -21,7 +21,7 @@ router.post("/login", async (req, res) => {
           message: 'User no existe o password incorrecto'
         })
       } else {
-        // firmamos JWT
+        // se firma el JWT
         const payload = { 
           email: skater.rows[0].email,
           nombre: skater.rows[0].nombre,
@@ -82,12 +82,12 @@ router.post("/registro", async (req, res) => {
 
     res.json({
       token: token,
-      message: 'User creado'
+      message: 'Usuario creado'
     })
   }
   } catch (error) {
     res.status(500).json({
-      message: 'Error interno de servidor'
+      message: 'Server error'
     })
     console.error(error)
   }
